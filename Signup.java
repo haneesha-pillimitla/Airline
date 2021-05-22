@@ -2,6 +2,9 @@ package com.example.demo.layer2;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -47,12 +50,26 @@ public class Signup  {
 	}
 
 	public int getUserid() {
-		return this.userid;
+		return userid;
 	}
 
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
+
+
+
+	public Long getPhoneno() {
+		return phoneno;
+	}
+
+
+
+	public void setPhoneno(Long phoneno) {
+		this.phoneno = phoneno;
+	}
+
+
 
 	public String getConfirmpassword() {
 		return this.confirmpassword;
@@ -102,13 +119,7 @@ public class Signup  {
 		this.password = password;
 	}
 
-	public Long getPhoneno() {
-		return this.phoneno;
-	}
-
-	public void setPhoneno(Long phoneno) {
-		this.phoneno = phoneno;
-	}
+	
 
 	public String getTitle() {
 		return this.title;
@@ -118,6 +129,7 @@ public class Signup  {
 		this.title = title;
 	}
 
+	@JsonIgnore
 	public Set<Reservation> getReservations() {
 		return this.reservations;
 	}
