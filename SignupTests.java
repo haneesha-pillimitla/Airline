@@ -3,8 +3,10 @@ package com.example.demo;
 
 
 
+import java.sql.Date;
 import java.util.Set;
-import java.util.Date;
+
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,67 +14,74 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.layer2.Signup;
 import com.example.demo.layer3.SignupRepository;
-import com.example.demo.layer3.SignupRepositoryImpl;
 
 @SpringBootTest
 class SignupTests {
-LocalDate  t=new LocalDate.of(date,month,year);
+
 	
 	@Autowired
 	SignupRepository SignupRepo;
+	
 	@Test
 	void contextLoads() {
 	//Set<Employee2> empSet = empRepo.findEmployeesByDeptno(30);
 	
-	Signup s=SignupRepo.findSignup(1);
-	System.out.println(s.getUserid());
-	System.out.println(s.getTitle());
-	System.out.println(s.getFirstname());
+	Signup findurs=SignupRepo.findSignup(1);
+	System.out.println(findurs.getUserid());
+	System.out.println(findurs.getTitle());
+	System.out.println(findurs.getFirstname());
 	
-	System.out.println(s.getLastname());
-	System.out.println(s.getDateofbirth());
-	System.out.println(s.getPhoneno());
-	System.out.println(s.getEmailaddr());
-	System.out.println(s.getPassword());
-	System.out.println(s.getConfirmpassword());
+	System.out.println(findurs.getLastname());
+	System.out.println(findurs.getDateofbirth());
+	System.out.println(findurs.getPhoneno());
+	System.out.println(findurs.getEmailaddr());
+	System.out.println(findurs.getPassword());
+	System.out.println(findurs.getConfirmpassword());
 	
 	
 	System.out.println("-----------------");
 }
+	
+	
 	@Test
 	void addLoads() {
 	
-	Signup s ;
-	
-	s.setTitle("mr");
-	s.setFirstname("Avinash");
-	
-	s.setLastname("gangapatnam");
-	s.setDateofbirth(04/30/1998);
-	s.setPhoneno(9056867548L);
-	s.setEmailaddr("av.gmail.com");
-	s.setPassword("avinash");
-	s.setConfirmpassword("avinash");
-	SignupRepo.addSignup(s);
+	Signup addurs =new Signup();
+	//Date date = new SimpleDateFormat("DD-MMM-YY").parse("30-Apr-1998");
+	addurs.setTitle("mr");
+	addurs.setFirstname("Avinash");
+	addurs.setLastname("gangapatnam");
+	String str="30-Apr-1998";
+	Date date1=Date.valueOf(str);
+	addurs.setDateofbirth(date1);
+	//addurs.setDateofbirth(("30-Apr-1998"));
+	addurs.setPhoneno(9056867548L);
+	addurs.setEmailaddr("av.gmail.com");
+	addurs.setPassword("avinash");
+	addurs.setConfirmpassword("avinash");
+	SignupRepo.addSignup(addurs);
 	
 	System.out.println("----Registered successfully----");
 }
 
 	@Test
 	void modifyLoads() {
+		
+		Signup modifyurs=SignupRepo.findSignup(6);
 	
-	Signup s ;
-	s.setUserid(6);
-	s.setTitle("mr");
-	s.setFirstname("Avinash");
+	modifyurs.setTitle("mr");
+	modifyurs.setFirstname("Avinash");
 	
-	s.setLastname("gangapatnam");
-	s.setDateofbirth(30-Apr-1998);
-	s.setPhoneno(9056867547L);
-	s.setEmailaddr("av.gmail.com");
-	s.setPassword("avinash");
-	s.setConfirmpassword("avinash");
-	SignupRepo.modifySignup(s);
+	modifyurs.setLastname("gangapatnam");
+	
+	String str="30-Apr-1998";
+	Date date1=Date.valueOf(str);
+	modifyurs.setDateofbirth(date1);
+	modifyurs.setPhoneno(9056867547L);
+	modifyurs.setEmailaddr("av.gmail.com");
+	modifyurs.setPassword("avinash");
+	modifyurs.setConfirmpassword("avinash");
+	SignupRepo.modifySignup(modifyurs);
 	
 	System.out.println("----Registered successfully----");
 }
@@ -86,7 +95,7 @@ LocalDate  t=new LocalDate.of(date,month,year);
 	@Test
 	void findallLoads() {
 		 
-		Set<Signup> signupset =SignupRepo.findSignup();
+		Set<Signup> signupset =SignupRepo.findAllSignup();
 		for (Signup s: signupset) {
 			System.out.println(s.getUserid());
 			System.out.println(s.getTitle());
@@ -103,6 +112,8 @@ LocalDate  t=new LocalDate.of(date,month,year);
 			System.out.println("-----------------");
 		}
 	}
+	
+	
 }
 
 	

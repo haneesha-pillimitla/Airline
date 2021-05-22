@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Set;
 
 
@@ -25,7 +25,7 @@ public class Signup  {
 
 	private String confirmpassword;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	
 	private Date dateofbirth;
 
 	private String emailaddr;
