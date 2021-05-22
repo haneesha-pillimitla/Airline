@@ -10,10 +10,10 @@ import com.example.demo.layer4.exceptions.UserNotFoundException;
 
 @Service
 public interface SignupService {
-	void addSignupService(Signup sRef) throws UserAlreadyExistsException;   //C - add/create
+	String addSignupService(Signup sRef) throws UserAlreadyExistsException;   //C - add/create
 	Signup findSignupService(int userid) throws UserNotFoundException;     //R - find/reading
 	Set<Signup> findAllSignupService();     //R - find all/reading all
-	void modifySignupService(Signup sRef) throws UserNotFoundException; //U - modify/update
-	void removeSignupService(int userid) throws UserNotFoundException;
+	String modifySignupService(Signup sRef) throws UserNotFoundException; //U - modify/update
+	String removeSignupService(int userid) throws UserNotFoundException;
 
 }

@@ -18,7 +18,7 @@ public class SignupServiceImpl implements SignupService{
 	
 	
 	@Override
-	public void addSignupService(Signup sRef) throws UserAlreadyExistsException {
+	public String addSignupService(Signup sRef) throws UserAlreadyExistsException {
 		try {
 			signupRepo.addSignup(sRef);
 		} catch (Exception e) {
@@ -26,6 +26,7 @@ public class SignupServiceImpl implements SignupService{
 			throw new UserAlreadyExistsException("User already exists");
 			
 		}
+		return "singup success";
 	}
 
 	@Override
@@ -47,7 +48,7 @@ public class SignupServiceImpl implements SignupService{
 	}
 
 	@Override
-	public void modifySignupService(Signup sRef) throws UserNotFoundException {
+	public String modifySignupService(Signup sRef) throws UserNotFoundException {
 		Signup s=signupRepo.findSignup(sRef.getUserid());
 		if(s!=null)
 		{
@@ -57,19 +58,21 @@ public class SignupServiceImpl implements SignupService{
 		{
 			throw new UserNotFoundException("user not found");
 		}
+		return "modified successfully";
 	}
 
 	@Override
-	public void removeSignupService(int userid) throws UserNotFoundException{
+	public String removeSignupService(int userid) throws UserNotFoundException{
 		Signup s=signupRepo.findSignup(userid);
 		if(s!=null)
 		{
-			signupRepo.removeSignup(s.getUserid());
+			signupRepo.removeSignup(userid);
 		}
 		else
 		{
 			throw new UserNotFoundException("user not found");
 		}
+		return "deleted";
 	}
 
 }
