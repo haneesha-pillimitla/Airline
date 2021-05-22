@@ -30,7 +30,7 @@ public class SignupRepositoryImpl implements SignupRepository{
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Transactional
-	public Set<Signup> findSignup() {
+	public Set<Signup> findAllSignup() {
 		Set<Signup> signupSet;
 		Query query = entityManager.createQuery("from Signup");
 		
@@ -46,13 +46,15 @@ public class SignupRepositoryImpl implements SignupRepository{
 		entityManager.merge(sRef);
 	}
 
-	@SuppressWarnings("unused")
 	@Transactional
 	public void removeSignup(int userid) {
 		// TODO Auto-generated method stub
 		Signup sTemp = entityManager.find(Signup.class,userid);
-		entityManager.remove(userid);
+		entityManager.remove(sTemp);
 	}
+	
+	
+	
 	
 
 }
