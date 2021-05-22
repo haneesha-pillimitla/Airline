@@ -3,12 +3,14 @@ package com.example.demo.layer4;
 
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.layer2.Signup;
 import com.example.demo.layer3.SignupRepository;
 import com.example.demo.layer4.exceptions.UserAlreadyExistsException;
 import com.example.demo.layer4.exceptions.UserNotFoundException;
 
-
+@Service
 public class SignupServiceImpl implements SignupService{
 	
 	@Autowired
@@ -16,7 +18,7 @@ public class SignupServiceImpl implements SignupService{
 	
 	
 	@Override
-	public void addSignup(Signup sRef) throws UserAlreadyExistsException {
+	public void addSignupService(Signup sRef) throws UserAlreadyExistsException {
 		try {
 			signupRepo.addSignup(sRef);
 		} catch (Exception e) {
@@ -27,7 +29,7 @@ public class SignupServiceImpl implements SignupService{
 	}
 
 	@Override
-	public Signup findSignup(int userid)throws UserNotFoundException {
+	public Signup findSignupService(int userid)throws UserNotFoundException {
 		
 		try {
 			return signupRepo.findSignup(userid);
@@ -40,12 +42,12 @@ public class SignupServiceImpl implements SignupService{
 
 	
 	@Override
-	public Set<Signup> findSignup() {
-		return signupRepo.findSignup();
+	public Set<Signup> findAllSignupService() {
+		return signupRepo.findAllSignup();
 	}
 
 	@Override
-	public void modifySignup(Signup sRef) throws UserNotFoundException {
+	public void modifySignupService(Signup sRef) throws UserNotFoundException {
 		Signup s=signupRepo.findSignup(sRef.getUserid());
 		if(s!=null)
 		{
@@ -58,7 +60,7 @@ public class SignupServiceImpl implements SignupService{
 	}
 
 	@Override
-	public void removeSignup(int userid) throws UserNotFoundException{
+	public void removeSignupService(int userid) throws UserNotFoundException{
 		Signup s=signupRepo.findSignup(userid);
 		if(s!=null)
 		{
