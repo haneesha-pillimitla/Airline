@@ -5,7 +5,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -25,8 +26,8 @@ public class Signup  {
 
 	private String confirmpassword;
 
-	
-	private Date dateofbirth;
+	@Column(name="dateofbirth",columnDefinition="Date")
+	private LocalDate dateofbirth=LocalDate.now();
 
 	private String emailaddr;
 
@@ -79,11 +80,11 @@ public class Signup  {
 		this.confirmpassword = confirmpassword;
 	}
 
-	public Date getDateofbirth() {
+	public  LocalDate getDateofbirth() {
 		return this.dateofbirth;
 	}
 
-	public void setDateofbirth(Date dateofbirth) {
+	public void setDateofbirth(LocalDate dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
 

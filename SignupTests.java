@@ -3,7 +3,8 @@ package com.example.demo;
 
 
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -51,10 +52,11 @@ class SignupTests {
 	addurs.setTitle("mr");
 	addurs.setFirstname("Avinash");
 	addurs.setLastname("gangapatnam");
-	String str="30-Apr-1998";
+	/*String str="30-Apr-1998";
 	Date date1=Date.valueOf(str);
-	addurs.setDateofbirth(date1);
+	addurs.setDateofbirth(date1);*/
 	//addurs.setDateofbirth(("30-Apr-1998"));
+	addurs.setDateofbirth(LocalDate.of(1998,04,30));
 	addurs.setPhoneno(9056867548L);
 	addurs.setEmailaddr("av.gmail.com");
 	addurs.setPassword("avinash");
@@ -67,20 +69,16 @@ class SignupTests {
 	@Test
 	void modifyLoads() {
 		
-		Signup modifyurs=SignupRepo.findSignup(6);
+		Signup modifyurs=SignupRepo.findSignup(43);
 	
 	modifyurs.setTitle("mr");
-	modifyurs.setFirstname("Avinash");
-	
+	modifyurs.setFirstname("Avinas");
 	modifyurs.setLastname("gangapatnam");
-	
-	String str="30-Apr-1998";
-	Date date1=Date.valueOf(str);
-	modifyurs.setDateofbirth(date1);
-	modifyurs.setPhoneno(9056867547L);
-	modifyurs.setEmailaddr("av.gmail.com");
-	modifyurs.setPassword("avinash");
-	modifyurs.setConfirmpassword("avinash");
+	modifyurs.setDateofbirth(LocalDate.of(1998,04,30));
+	modifyurs.setPhoneno(9056867447L);
+	modifyurs.setEmailaddr("avi.gmail.com");
+	modifyurs.setPassword("avnnash");
+	modifyurs.setConfirmpassword("avnnash");
 	SignupRepo.modifySignup(modifyurs);
 	
 	System.out.println("----Registered successfully----");
@@ -89,7 +87,7 @@ class SignupTests {
 	
 	@Test
 	void removeLoads() {
-		SignupRepo.removeSignup(6);
+		SignupRepo.removeSignup(43);
 	}
 	
 	@Test
