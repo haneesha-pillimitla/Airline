@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.example.demo.layer2.Signup;
 
 @Repository
@@ -53,8 +52,20 @@ public class SignupRepositoryImpl implements SignupRepository{
 		entityManager.remove(sTemp);
 	}
 	
+	@Transactional
+	public Signup findSignupbymail(String email) {
+		Signup signup;
+		Query query = entityManager.createNativeQuery("select * from signup where emailaddr =" +"'"+ email+"'",Signup.class);
+		signup = (Signup) query.getSingleResult();
+		return signup;
+	}
 	
-	
-	
+	@Transactional
+	public Signup findSignupbynumber(Long phoneno) {
+		Signup signup;
+		Query query = entityManager.createNativeQuery("select * from signup where phoneno =" +"'"+ phoneno+"'",Signup.class);
+		signup = (Signup) query.getSingleResult();
+		return signup;
+	}
 
 }
