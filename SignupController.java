@@ -31,7 +31,7 @@ public class SignupController {
 	@GetMapping(path="/getUser/{mysignup}")
 	@ResponseBody
 	public ResponseEntity<Signup> getSignup(@PathVariable("mysignup") Integer userid) throws UserNotFoundException {
-		System.out.println("Department Controller....Understanding client and talking to service layer...");
+		System.out.println("Signup Controller....Understanding client and talking to service layer...");
 		Signup signup;
 		
 			signup = signupServ.findSignupService(userid);
@@ -49,7 +49,7 @@ public class SignupController {
 	@GetMapping(path="/getUsers")
 	@ResponseBody
 	public Set<Signup> getAllSignupService() {
-		System.out.println("Department Controller....Understanding client and talking to service layer...");
+		System.out.println("Signup Controller....Understanding client and talking to service layer...");
 		Set<Signup> signupList = signupServ.findAllSignupService();
 		return signupList;
 		
@@ -135,7 +135,7 @@ public class SignupController {
 	
 	@GetMapping(path="/getUserDetailsByMail")
 	public ResponseEntity<Signup> getSignupbyMail(@RequestBody Signup signup) throws UserNotFoundException {
-		System.out.println("Department Controller....Understanding client and talking to service layer...");
+		System.out.println("Signup Controller....Understanding client and talking to service layer...");
 	
 			signup = signupServ.findSignupbymailService(signup.getEmailaddr());
 			if(signup==null)
@@ -149,7 +149,7 @@ public class SignupController {
 	}
 	@GetMapping(path="/getUserDetailsByNumber")
 	public ResponseEntity<Signup> getSignubyNumber(@RequestBody Signup signup) throws UserNotFoundException {
-		System.out.println("Department Controller....Understanding client and talking to service layer...");
+		System.out.println("Signup Controller....Understanding client and talking to service layer...");
 	
 			signup = signupServ.findSignupbynumberService(signup.getPhoneno());
 			if(signup==null)
@@ -164,7 +164,7 @@ public class SignupController {
 	
 	@GetMapping(path="/getUser")
 	public ResponseEntity<Signup> getUser(@RequestBody Signup signup) throws UserNotFoundException {
-		System.out.println("Department Controller....Understanding client and talking to service layer...");
+		System.out.println("Signup Controller....Understanding client and talking to service layer...");
 	
 			signup = signupServ.findSignupService(signup.getUserid());
 			if(signup==null)
