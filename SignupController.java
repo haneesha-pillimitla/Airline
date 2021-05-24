@@ -105,7 +105,7 @@ public class SignupController {
 	}
 	
 	
-	@DeleteMapping(path="/deleteUser") //notworking
+	@DeleteMapping(path="/deleteUser") 
 	public String removeSignup(@RequestBody Signup signup)throws UserNotFoundException {
 		System.out.println("signup Controller....Understanding client and talking to service layer...");
 		 String stmsg = null;
