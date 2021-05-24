@@ -74,5 +74,39 @@ public class SignupServiceImpl implements SignupService{
 		}
 		return "deleted";
 	}
+	
+	@Override
+	public Signup findSignupbymailService(String email) throws UserNotFoundException {
+		try {
+			return signupRepo.findSignupbymail(email);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new UserNotFoundException("user not found");
+		}
+	}
+	
+	@Override
+	public Signup findSignupbynumberService(Long phoneno) throws UserNotFoundException{
+		try {
+			return signupRepo.findSignupbynumber(phoneno);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new UserNotFoundException("user not found");
+		}
+	}
+	
+	public String athentication(int userid,String password)
+	{
+			Signup signup= signupRepo.findSignup(userid);
+			String psw = signup.getPassword();
+			 if(psw.equalsIgnoreCase(password))
+			 {
+				 return "loginsuccess";
+			 }
+			 else
+			 {
+			   return "loginfails";
+			 }
+	}
 
 }

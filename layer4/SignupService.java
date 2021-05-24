@@ -15,5 +15,7 @@ public interface SignupService {
 	Set<Signup> findAllSignupService();     //R - find all/reading all
 	String modifySignupService(Signup sRef) throws UserNotFoundException; //U - modify/update
 	String removeSignupService(int userid) throws UserNotFoundException;
-
+	public String athentication(int user,String pass);
+	Signup findSignupbymailService(String email) throws UserNotFoundException;
+	Signup findSignupbynumberService(Long phoneno) throws UserNotFoundException;
 }
