@@ -1,0 +1,160 @@
+<body>
+    <h1>✈ User signup page ✈</h1><br>
+
+    <div class="signup">
+
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center">
+                    <label><b>Sign-up</b></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Title</b></label>
+                </td>
+                <td> 
+                    <select [(ngModel)]="mysignup.title" id=title name=title>
+                    <option id=None>----------------------------------</option>
+                    <option  id=mr value=Mr>    Mr   </option>
+                    <option  id=ms value=Ms>   Ms </option>
+                    <option  id=mrs value=Mrs>   Mrs  </option>
+                    </select></td></tr>
+            <tr>
+                <td>
+                    <label><b>Firstname</b></label>
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="mysignup.firstname"  placeholder="FirstName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Lastname</b></label>
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="mysignup.lastname" placeholder="LastName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Date-of-Birth</b></label>
+                </td>
+                <td>
+                    <input type="date" [(ngModel)]="mysignup.dateofbirth">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Phone Number</b></label>
+                </td>
+                <td>
+                    <input type="number" [(ngModel)]="mysignup.phoneno"  placeholder="PhoneNumber">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Email</b></label>
+                </td>
+                <td>
+                    <input type="email" [(ngModel)]="mysignup.emailaddr" placeholder="Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Password</b></label>
+                </td>
+                <td>
+                    <input type="password" [(ngModel)]="mysignup.password" placeholder="Password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>ConformPassword</b></label>
+                </td>
+                <td>
+                    <input type="password" [(ngModel)]="mysignup.confirmpassword" placeholder="ConfirmPassword">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button (click)='addUser(mysignup)'>Sign-up</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+    <table align="center" border="5">
+        <tr>
+            <td colspan="2" align="center">
+                <label><b>user details</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>UserId</b></label>
+            </td>
+            <td> 
+                {{mysignup1.userid}}
+            </td></tr>
+        <tr>
+        <tr>
+            <td>
+                <label><b>Title</b></label>
+            </td>
+            <td> 
+                {{mysignup1.title}}
+            </td></tr>
+        <tr>
+            <td>
+                <label><b>Firstname</b></label>
+            </td>
+            <td>
+                {{mysignup1.firstname}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>Lastname</b></label>
+            </td>
+            <td>
+                {{mysignup1.lastname}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>Date-of-Birth</b></label>
+            </td>
+            <td>
+               {{mysignup1.dateofbirth}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>Phone Number</b></label>
+            </td>
+            <td>
+                {{mysignup1.phoneno}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>Email</b></label>
+            </td>
+            <td>
+                {{mysignup1.emailaddr}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><b>Password</b></label>
+            </td>
+            <td>
+               {{mysignup1.password}}
+            </td>
+        </tr>    
+    </table>
+    </div>
+    <br>
+</body>
